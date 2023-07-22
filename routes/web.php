@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [StaticController::class, 'home']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/', [StaticController::class, 'home']);
 Route::get('/blog', [PostsController::class, 'index'])->name('blog_index');
 Route::get('/blog/{id}', [PostsController::class, 'show'])->name('blog_show');
 Route::get('/blog/Category/{cat}', [StaticController::class, 'category_page'])->name('category');
